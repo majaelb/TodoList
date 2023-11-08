@@ -52,10 +52,12 @@ namespace TodoList
 
         public void PrintTodoList(List<TodoItem> todoList)
         {
-            Console.WriteLine("Id           Title           Description         Done");
+            int count = 0;
+            Console.WriteLine("Index           Title           Description         Done");
             foreach (var todo in todoList)
             {
-                Console.WriteLine($"{todo.Id}           {todo.Title}            {todo.Description}          {(todo.IsComplete ? "Done" : "Not Done")}");
+                Console.WriteLine($"{count}               {todo.Title}      {todo.Description}              {(todo.IsComplete ? "Done" : "Not Done")}");
+                count++;
             }
         }
 

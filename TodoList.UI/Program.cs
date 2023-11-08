@@ -29,9 +29,19 @@
                         var description = ui.GetUserInput("Add a description, how/when? ");
                         todo.AddTodo(title, description);
                     break;
+                case "m":
+
                 case "v":
                     var todos = todo.GetTodos();
                     ui.PrintTodoList(todos);
+                    break;
+                case "c":
+                    var completeTodos = todo.GetCompleteTodos();
+                    ui.PrintTodoList(completeTodos);
+                    break;
+                case "i":
+                    var inCompleteTodos = todo.GetIncompleteTodos();
+                    ui.PrintTodoList(inCompleteTodos);
                     break;
                 default:
                     Console.WriteLine("Not a valid input");
