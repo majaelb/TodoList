@@ -40,7 +40,8 @@ namespace TodoList
                    ---------------
                    A - Add new task
                    R - Remove task
-                   M - Mark as complete/incomplete
+                   M - Mark as complete
+                   N - Mark as incomplete
                    V - View all tasks
                    C - View complete tasks
                    I - View incomplete tasks

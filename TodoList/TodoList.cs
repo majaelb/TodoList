@@ -26,6 +26,13 @@ namespace TodoList
             return allTodos.Where(x => x.IsComplete == true).ToList();
         }
 
+        public TodoItem GetTodoItemByIndex(int index)
+        {
+            var allTodos = _todoListStorage.GetAllTodos();
+
+            return allTodos[index];
+        }
+
         public List<TodoItem> GetIncompleteTodos()
         {
             var allTodos = _todoListStorage.GetAllTodos();

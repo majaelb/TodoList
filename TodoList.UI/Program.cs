@@ -25,12 +25,15 @@
             switch (choice)
             {
                 case "a":
-                        var title = ui.GetUserInput("What needs to be done? ");
-                        var description = ui.GetUserInput("Add a description, how/when? ");
-                        todo.AddTodo(title, description);
+                    var title = ui.GetUserInput("What needs to be done? ");
+                    var description = ui.GetUserInput("Add a description, how/when? ");
+                    todo.AddTodo(title, description);
                     break;
                 case "m":
-
+                    var index = ui.GetUserInput("Vilken vill du markera som klar? ");
+                    var todoItem = todo.GetTodoItemByIndex(Convert.ToInt32(index));
+                    todo.UpdateTodoStatusToComplete(todoItem);
+                    break;
                 case "v":
                     var todos = todo.GetTodos();
                     ui.PrintTodoList(todos);
