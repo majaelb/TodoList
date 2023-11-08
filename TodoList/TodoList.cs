@@ -9,7 +9,6 @@ namespace TodoList
     public class TodoList
     {
 
-        //Testpush
         private readonly ITodoListStorage _todoListStorage;
 
         public TodoList(ITodoListStorage todoListStorage)
@@ -71,6 +70,6 @@ namespace TodoList
             return todoItem;
         }
 
-        public void RemoveTodo(Guid guid) => _todoListStorage.RemoveTodoItem(guid);
+        public void RemoveTodo(int index) => _todoListStorage.RemoveTodoItem(index);
     }
 }

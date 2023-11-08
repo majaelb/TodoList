@@ -15,6 +15,6 @@ namespace TodoList
         /// </summary>
         /// <param name="todoItem">The item to save</param>
         void SaveTodoItem(TodoItem todoItem);
-        void RemoveTodoItem(Guid guid);
+        void RemoveTodoItem(int index);
     }
 }

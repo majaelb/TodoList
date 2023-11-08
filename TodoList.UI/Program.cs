@@ -30,9 +30,14 @@
                     todo.AddTodo(title, description);
                     break;
                 case "m":
-                    var index = ui.GetUserInput("Vilken vill du markera som klar? ");
+                    var index = ui.GetUserInput("Choose index to mark as complete");
                     var todoItem = todo.GetTodoItemByIndex(Convert.ToInt32(index));
                     todo.UpdateTodoStatusToComplete(todoItem);
+                    break;
+                case "n":
+                    index = ui.GetUserInput("Choose index to mark as incomplete");
+                    todoItem = todo.GetTodoItemByIndex(Convert.ToInt32(index));
+                    todo.UpdateTodoStatusToInComplete(todoItem);
                     break;
                 case "v":
                     var todos = todo.GetTodos();
@@ -45,6 +50,10 @@
                 case "i":
                     var inCompleteTodos = todo.GetIncompleteTodos();
                     ui.PrintTodoList(inCompleteTodos);
+                    break;
+                case "r":
+                    index = ui.GetUserInput("Choose index to remove. ");
+                    todo.RemoveTodo(Convert.ToInt32(index));
                     break;
                 default:
                     Console.WriteLine("Not a valid input");

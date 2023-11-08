@@ -17,14 +17,22 @@ namespace TodoList
 
         public List<TodoItem> GetAllTodos() => TodoItems;
 
-        public void RemoveTodoItem(Guid guid)
+        public void RemoveTodoItem(int index) => TodoItems.RemoveAt(index);
+
+        public void SaveTodoItem(TodoItem todoItem)
         {
-            var todoitem = TodoItems.Where(x => x.Id == guid).FirstOrDefault();
+            var item = TodoItems.FirstOrDefault(x => x.Id == todoItem.Id);
+            if (item == null)
+            {
+                TodoItems.Add(todoItem);
+            }
+            else
+            {
+                // update list in database
+            }
 
-            TodoItems.Remove(todoitem);
+
         }
-
-        public void SaveTodoItem(TodoItem todoItem) => TodoItems.Add(todoItem);
 
     }
 }
