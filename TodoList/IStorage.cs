@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TodoList
 {
-    public interface ITodoListStorage
+    public interface IStorage
     {
         List<TodoItem> GetAllTodos();
 

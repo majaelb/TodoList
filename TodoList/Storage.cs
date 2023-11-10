@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace TodoList
 {
-    public class TodoListStorage : ITodoListStorage
+    public class Storage : IStorage
     {
         public static List<TodoItem> TodoItems { get; set; }
 
-        public TodoListStorage()
+        public Storage()
         {
-            TodoItems = new List<TodoItem>();
+            TodoItems = new List<TodoItem>
+            {
+                new TodoItem { Title = "Feed cat   ", Description = "Meatballs in refridgerator", IsComplete = true },
+                new TodoItem { Title = "Clean house", Description = "Vacuum hallway and bedroom", IsComplete = false },
+                new TodoItem { Title = "Study tests", Description = "Finish to do-project today", IsComplete = false },
+            };
         }
 
         public List<TodoItem> GetAllTodos() => TodoItems;
@@ -30,7 +35,6 @@ namespace TodoList
             {
                 // update list in database
             }
-
 
         }
 

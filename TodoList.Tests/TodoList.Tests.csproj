@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TodoList\TodoList.csproj" />
+    <ProjectReference Include="..\TodoList.UI\TodoList.Cli.csproj" />
+    <ProjectReference Include="..\TodoList\TodoList.Core.csproj" />
   </ItemGroup>
 
 </Project>

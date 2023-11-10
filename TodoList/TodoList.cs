@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TodoList
 {
-    public class TodoList
+    public class TodoList : ITodoList
     {
 
-        private readonly ITodoListStorage _todoListStorage;
+        private readonly IStorage _todoListStorage;
 
-        public TodoList(ITodoListStorage todoListStorage)
+        public TodoList(IStorage todoListStorage)
         {
             _todoListStorage = todoListStorage;
         }
@@ -28,6 +28,8 @@ namespace TodoList
         public TodoItem GetTodoItemByIndex(int index)
         {
             var allTodos = _todoListStorage.GetAllTodos();
+            if (allTodos.Count < index + 1)
+                throw new InvalidOperationException("The index doesn't exist");
 
             return allTodos[index];
         }
@@ -66,10 +68,17 @@ namespace TodoList
             todoItem.IsComplete = false;
 
             _todoListStorage.SaveTodoItem(todoItem);
-            
+
             return todoItem;
         }
 
-        public void RemoveTodo(int index) => _todoListStorage.RemoveTodoItem(index);
+        public void RemoveTodo(int index)
+        {
+            var allTodos = _todoListStorage.GetAllTodos();
+            if (allTodos.Count < index + 1)
+                throw new InvalidOperationException("The index doesn't exist");
+
+            _todoListStorage.RemoveTodoItem(index);
+        }
     }
 }
