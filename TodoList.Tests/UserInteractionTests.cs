@@ -25,7 +25,6 @@ namespace TodoList.Tests
             // Assert
             Assert.Equal(expected, actual);
         }
-
         [Fact]
         public void GetInputKeepsTryingOnEmpty()
         {
@@ -46,8 +45,6 @@ namespace TodoList.Tests
             Assert.Equal(expected, actual);
             mock.Verify(x => x.ReadLine(), Times.Exactly(4));
         }
-
-
         [Fact]
         public void GetInputWorksWhenUserInputsInt()
         {
@@ -64,7 +61,6 @@ namespace TodoList.Tests
             // Assert
             Assert.Equal(42, actual);
         }
-
         [Fact]
         public void GetInputKeepsTryingOnNonValidInteger()
         {
@@ -85,33 +81,5 @@ namespace TodoList.Tests
             Assert.Equal(42, actual);
             mock.Verify(x => x.ReadLine(), Times.Exactly(4));
         }
-
-
-
-
-
-        //[Fact]
-        //public void TestUserInteraction()
-        //{
-        //    // Arrange
-        //    var mock = new Mock<IUserInteraction>();
-
-        //    var sequence = new MockSequence();
-
-        //    mock.InSequence(sequence).Setup(x =>
-        //        x.GetUserInput("Ange titel: ")).Returns("Vattna blommorna");
-        //    mock.InSequence(sequence).Setup(x =>
-        //        x.GetUserInput("Ange beskrivning: ")).Returns("Alla blommor utom de i köket");
-
-        //    var sut = mock.Object;
-
-        //    //Act
-        //    var result1 = sut.GetUserInput("Ange titel: ");
-        //    var result2 = sut.GetUserInput("Ange beskrivning: ");
-
-        //    // Assert
-        //    Assert.Equal("Vattna blommorna", result1);
-        //    Assert.Equal("Alla blommor utom de i köket", result2);
-        //}
     }
 }

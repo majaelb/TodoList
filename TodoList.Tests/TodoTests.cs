@@ -17,7 +17,6 @@ namespace TodoList.Tests
             //Assert
             mockTodoStorage.Verify(x => x.GetAllTodos(), Times.Once());
         }
-
         [Fact]
         public void CanShowCompleteTodoItems()
         {
@@ -41,7 +40,6 @@ namespace TodoList.Tests
             Assert.All(actual, x => Assert.True(x.IsComplete));
             Assert.Equal(3, actual.Count);
         }
-
         [Fact]
         public void CanShowInCompleteTodoItems()
         {
@@ -65,9 +63,8 @@ namespace TodoList.Tests
             Assert.All(actual, x => Assert.False(x.IsComplete));
             Assert.Equal(3, actual.Count);
         }
-
         [Fact]
-        public void GetTodoItemByIndex_IndexWithinRange_ReturnsTodoItem()
+        public void GetTodoItemByIndexReturnsTodoItemIfIndexWithinRange()
         {
             // Arrange
             var todoListStorageMock = new Mock<IStorage>();
@@ -86,9 +83,8 @@ namespace TodoList.Tests
             // Assert
             Assert.NotNull(result);
         }
-
         [Fact]
-        public void GetTodoItemByIndex_IndexOutOfRange_ThrowsException()
+        public void GetTodoItemByIndexThrowsExceptionIfIndexOutOfRange()
         {
             // Arrange
             var todoListStorageMock = new Mock<IStorage>();
@@ -101,10 +97,10 @@ namespace TodoList.Tests
                 new TodoItem {  }
             });
 
-            // Act and Assert
+            // Act
+            // Assert
             Assert.Throws<InvalidOperationException>(() => todoListService.GetTodoItemByIndex(5));
         }
-
         [Fact]
         public void CanAddTodoItem()
         {
@@ -126,7 +122,6 @@ namespace TodoList.Tests
 
             mockTodoStorage.Verify(x => x.SaveTodoItem(actual), Times.Once());
         }
-
         [Fact]
         public void CanMarkTodoItemAsComplete()
         {
@@ -142,7 +137,6 @@ namespace TodoList.Tests
             Assert.True(actual.IsComplete);
             mockTodoStorage.Verify(x => x.SaveTodoItem(actual), Times.Once());
         }
-
         [Fact]
         public void CanMarkTodoItemAsInComplete()
         {

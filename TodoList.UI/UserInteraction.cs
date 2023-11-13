@@ -16,18 +16,6 @@ namespace TodoList.Cli
             _consoleWrapper = consoleWrapper;
         }
 
-        public void ClearConsole()
-        {
-            _consoleWrapper.Clear();
-        }
-        public void DisplayMessage(string s)
-        {
-            _consoleWrapper.WriteLine(s);
-        }
-        public ConsoleKey GetKeyInput() => _consoleWrapper.ConsoleKey();
-
-        public string GetStringInput() => _consoleWrapper.ReadLine();
-
         public string GetStringInput(string prompt)
         {
             string input = null;
@@ -46,7 +34,6 @@ namespace TodoList.Cli
             }
             return input;
         }
-
         public int GetIntInput(string prompt)
         {
             int value;
@@ -61,5 +48,12 @@ namespace TodoList.Cli
 
             return value;
         }
+        public void DisplayMessage(string s)
+        {
+            _consoleWrapper.WriteLine(s);
+        }
+        public string GetStringInput() => _consoleWrapper.ReadLine();
+        public void ClearConsole() => _consoleWrapper.Clear();
+        public ConsoleKey GetKeyInput() => _consoleWrapper.ConsoleKey();
     }
 }

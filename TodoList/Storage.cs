@@ -19,24 +19,13 @@ namespace TodoList
                 new TodoItem { Title = "Study tests", Description = "Finish to do-project today", IsComplete = false },
             };
         }
-
         public List<TodoItem> GetAllTodos() => TodoItems;
-
         public void RemoveTodoItem(int index) => TodoItems.RemoveAt(index);
-
         public void SaveTodoItem(TodoItem todoItem)
         {
             var item = TodoItems.FirstOrDefault(x => x.Id == todoItem.Id);
-            if (item == null)
-            {
+            if (item == null)            
                 TodoItems.Add(todoItem);
-            }
-            else
-            {
-                // update list in database
-            }
-
         }
-
     }
 }

@@ -17,14 +17,12 @@ namespace TodoList
         }
 
         public List<TodoItem> GetTodos() => _todoListStorage.GetAllTodos();
-
         public List<TodoItem> GetCompleteTodos()
         {
             var allTodos = _todoListStorage.GetAllTodos();
 
             return allTodos.Where(x => x.IsComplete == true).ToList();
         }
-
         public TodoItem GetTodoItemByIndex(int index)
         {
             var allTodos = _todoListStorage.GetAllTodos();
@@ -33,14 +31,12 @@ namespace TodoList
 
             return allTodos[index];
         }
-
         public List<TodoItem> GetIncompleteTodos()
         {
             var allTodos = _todoListStorage.GetAllTodos();
 
             return allTodos.Where(x => x.IsComplete == false).ToList();
         }
-
         public TodoItem AddTodo(string title, string description)
         {
             var todoItem = new TodoItem
@@ -53,7 +49,6 @@ namespace TodoList
 
             return todoItem;
         }
-
         public TodoItem UpdateTodoStatusToComplete(TodoItem todoItem)
         {
             todoItem.IsComplete = true;
@@ -62,7 +57,6 @@ namespace TodoList
 
             return todoItem;
         }
-
         public TodoItem UpdateTodoStatusToInComplete(TodoItem todoItem)
         {
             todoItem.IsComplete = false;
@@ -71,7 +65,6 @@ namespace TodoList
 
             return todoItem;
         }
-
         public void RemoveTodo(int index)
         {
             var allTodos = _todoListStorage.GetAllTodos();
