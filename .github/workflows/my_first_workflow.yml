@@ -7,5 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - run: echo "The amazing job has started"
+      - run: echo "This was triggered by a ${{ github.event_name }} event."
+      - run: echo "This was run on ${{ runner.os }} OS"
       - run: echo "The amazing job is complete"
       
