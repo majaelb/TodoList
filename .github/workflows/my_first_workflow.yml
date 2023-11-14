@@ -12,4 +12,19 @@ jobs:
       - run: echo "Branch ${{ github.ref }}"
       - run: echo "Repository ${{ github.repository }}"
       - run: echo "The amazing job is complete"
+  my-amazing-checkout-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Cloning${{ github.repository }} to the runner..."
+      - name: Checkout repo
+        uses: actions/checkout@v4.1.1
+      - run: echo "Checkout is done"
+      - name: List files in repo
+        run: | 
+          ls -lah ${{ github.workspace }};
+          echo "Contents of Instructions.md";
+          cat Instructions.md
+          
+        
       
+
