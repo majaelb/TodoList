@@ -23,7 +23,7 @@ jobs:
         run: | 
           ls -lah ${{ github.workspace }};
           echo "Contents of Instructions.md";
-          cat Instructions.md;
+          cat TodoList/Instructions.md;
           
         
       
