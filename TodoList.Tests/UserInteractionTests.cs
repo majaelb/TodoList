@@ -25,6 +25,7 @@ namespace TodoList.Tests
             // Assert
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void GetInputKeepsTryingOnEmpty()
         {
@@ -45,6 +46,7 @@ namespace TodoList.Tests
             Assert.Equal(expected, actual);
             mock.Verify(x => x.ReadLine(), Times.Exactly(4));
         }
+
         [Fact]
         public void GetInputWorksWhenUserInputsInt()
         {
@@ -61,6 +63,7 @@ namespace TodoList.Tests
             // Assert
             Assert.Equal(42, actual);
         }
+
         [Fact]
         public void GetInputKeepsTryingOnNonValidInteger()
         {

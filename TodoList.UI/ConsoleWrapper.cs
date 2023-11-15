@@ -10,7 +10,7 @@ namespace TodoList.Cli
     {
         public void Clear() => Console.Clear();
         public ConsoleKey ConsoleKey() => Console.ReadKey(true).Key;
-        public string ReadLine() => Console.ReadLine();
+        public string ReadLine() => Console.ReadLine() ?? " ";
         public void WriteLine(string s) => Console.WriteLine(s);
     }
 }

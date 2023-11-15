@@ -18,7 +18,7 @@ namespace TodoList.Cli
 
         public string GetStringInput(string prompt)
         {
-            string input = null;
+            string input = " ";
 
             _consoleWrapper.WriteLine(prompt);
 
