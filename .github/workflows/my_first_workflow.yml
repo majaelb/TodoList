@@ -34,7 +34,7 @@ jobs:
       - run: echo "The not so amazing job has started"
       - run: |
           echo "Counting lines of code..."
-          echo "Total lines of code is ${{ lines_of_code }} "
+          echo "Total lines of code is $lines_of_code "
       - run: echo "The amazing job is complete"
           
         
