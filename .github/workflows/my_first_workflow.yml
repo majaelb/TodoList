@@ -29,7 +29,7 @@ jobs:
   my-not-as-amazing-job:
     runs-on: ubuntu-latest
     env: 
-      lines_of_code: $(find . -name '*.cs' -o)
+      lines_of_code: $(find . -name '*.cs' -print0 | xargs -0 cat | wc -l)
     steps: 
       - run: echo "The not so amazing job has started"
       - run: |
