@@ -32,9 +32,12 @@ jobs:
       lines_of_code: $(find . -name '*.cs' -print0 | xargs -0 cat | wc -l)
     steps: 
       - run: echo "The not so amazing job has started"
-      - run: |
-          echo "Counting lines of code..."
-          echo "Total lines of code is $lines_of_code "
+      - name: Count Lines of Code (cloc)
+  # You may pin to the exact commit or the version.
+  # uses: djdefi/cloc-action@6b0244f60427a34a43794f3723267f8add465b04
+        uses: djdefi/cloc-action@5
+          
+      
       - run: echo "The amazing job is complete"
           
         
