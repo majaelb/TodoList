@@ -38,6 +38,14 @@ jobs:
       - name: Another step
         run: echo "another step..."
 
+      - name: Step that runs on failure
+        if: failure()
+        run: echo "Oh no.. call for help!"
+
+      - name: Step that always runs
+        if: always()
+        run: eho "I will run no matter what!!"
+
 
 
 
