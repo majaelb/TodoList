@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: yes was passed in as 'fail_my_step'
-        if: inputs.fail_my_step == 'yes'
+        if: inputs.fail-my-step == 'yes'
         run: echo "you said yes :) !"
 
       - name: no was passed in as 'fail_my_step'
-        if: inputs.fail_my_step == 'no'
+        if: inputs.fail-my-step == 'no'
         run: echo "you said no :( !"
