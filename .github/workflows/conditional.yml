@@ -20,3 +20,30 @@ jobs:
       - name: no was passed in as 'fail_my_step'
         if: inputs.fail_my_step == 'no'
         run: echo "you said no :( !"
+
+      - name: Step that may fail
+        shell: bash
+        # shell behöevr definieras för windows
+        run: |
+          echo "Hello, I may fail"
+          if [ "yes" = "${{ inputs.fail_my_step }}" ]; then
+          #mellanrum i brackets är ett måste
+            exit 42
+            #positivt värde betyder krasch
+            fi
+            
+      - name: Another step
+        run: echo "another step..."
+        
+      - name: Another step
+        run: echo "another step..."
+
+
+
+
+
+
+
+
+
+        
