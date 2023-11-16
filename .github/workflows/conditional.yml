@@ -7,7 +7,7 @@ on:
         description: 'Shall we fail the step (yes/no)'
         required: true
         type: string
-        default: yes
+        default: 'yes'
 
 jobs: 
   the-best-job:
