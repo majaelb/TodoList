@@ -44,7 +44,7 @@ jobs:
 
       - name: Step that always runs
         if: always()
-        run: eho "I will run no matter what!!"
+        run: echo "I will run no matter what!!"
 
 
 
