@@ -53,6 +53,18 @@ jobs:
           echo "The input number env var is $NUMBER_INPUT"
           echo "The job env var is $JOB_ENV"
           echo "The step env var is $STEP_ENV"
+
+  the-OS-job:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        dotnet_version: [7.0, 6.0, 5.0]
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          version: ${{ matrix.dotnet_version }}
           
         
 
