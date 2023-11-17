@@ -18,6 +18,12 @@ jobs:
 
       - name: The number was lower than 7
         if: inputs.viktig < 7
-        run: echo "The number was 7 or higher!"
+        run: echo "The number was lower than 7. The rest of this job will not run."
+        
+      - name: Another step
+        run: echo "step that will not run if number is lower than 7..."
+          
+      - name: Another step
+        run: echo "another step that will not run if number is lower than 7..."
 
         
