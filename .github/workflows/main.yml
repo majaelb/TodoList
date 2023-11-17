@@ -17,11 +17,11 @@ jobs:
         run: echo "The number was 7 or higher!"
 
       - name: The number was lower than 7
-        run: | 
+        run: |
           echo "The number was lower than 7. The rest of this job will not run."
-           if [ inputs.viktig < 7 ]; then
+          if [ ${{ inputs.viktig }} -lt 7 ]; then
             exit 42
-            fi
+          fi
         
       - name: Another step
         run: echo "step that will not run if number is lower than 7..."
