@@ -15,11 +15,11 @@ jobs:
       NUMBER_INPUT: ${{ inputs.viktig }}
     steps:
       - name: The number was 7 or higher
-        if: inputs.viktig >= 7
+        if: $NUMBER_INPUT >= 7
         run: echo "The number was 7 or higher!"
 
       - name: The number was lower than 7
-        if: inputs.viktig < 7
+        if: $NUMBER_INPUT < 7
         run: |
          echo "The number was lower than 7. The rest of this job will not run."
          echo "Value of inputs.viktig: ${{ inputs.viktig }}"
@@ -43,10 +43,18 @@ jobs:
       - name: Testing env var that should be 'Hello from job'
         run: echo "The env var is in fact $JOB_ENV"
 
-      - name: Creating env var in step
+      - name: Creating env var in step that should be 'Hello from step'
         env:
-          STEP_VAR: 'Hello from step'
-        run: echo "The env var in step is in fact $STEP_VAR"
+          STEP_ENV: 'Hello from step'
+        run: echo "The env var in step is in fact $STEP_ENV"
+
+      - name: Testing if I can access all env vars from here
+        run: |
+          echo "The input number env var is $NUMBER_INPUT"
+          echo "The job env var is $JOB_ENV"
+          echo "The step env var is $STEP_ENV"
+          
+        
 
 
 
