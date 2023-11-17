@@ -19,6 +19,7 @@ jobs:
         run: echo "The number was 7 or higher!"
 
       - name: The number was lower than 7
+        if: inputs.viktig < 7
         run: |
          echo "The number was lower than 7. The rest of this job will not run."
          echo "Value of inputs.viktig: ${{ inputs.viktig }}"
