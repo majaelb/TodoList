@@ -6,10 +6,10 @@ on:
       viktig:
         description: 'Insert number here (fail if under 7)'
         required: true
-        type: string
+        type: number
 
 jobs: 
-  the-best-job:
+  the-number-job:
     runs-on: ubuntu-latest
     env:
       NUMBER_INPUT: ${{ inputs.viktig }}
@@ -33,4 +33,17 @@ jobs:
       - name: Another step
         run: echo "another step that will not run if number is lower than 7..."
 
+  the-env-job:
+    runs-on: ubuntu-latest
+    env: 
+      JOB_ENV: 'Hello from job'
+
+    steps: 
+      - name: Testing env var that should be 'Hello from job'
+        run: echo "The env var is in fact $JOB_ENV"
+
+
+
+
+      
         
