@@ -22,7 +22,7 @@ jobs:
         run: |
          echo "The number was lower than 7. The rest of this job will not run."
          echo "Value of inputs.viktig: ${{ inputs.viktig }}"
-         if [ ${{ inputs.viktig }} -lt 7 ]; then
+         if [ $NUMBER_INPUT -lt 7 ]; then
          echo "Exiting with code 42"
          exit 42
          fi
