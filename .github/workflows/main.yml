@@ -1,0 +1,24 @@
+name : Conditional env and matrix
+
+on: 
+  workflow_dispatch:
+    inputs:
+      viktig:
+        description: 'Insert number here (fail if under 7)'
+        required: true
+        type:  number
+        default: 10
+
+jobs: 
+  the-best-job:
+    runs-on: ubuntu latest
+    steps:
+      - name: The number was 7 or higher
+        if: inputs.viktig >= 7
+        run: echo "The number was 7 or higher!"
+
+      - name: The number was lower than 7
+        if: inputs.viktig < 7
+        run: echo "The number was 7 or higher!"
+
+        
