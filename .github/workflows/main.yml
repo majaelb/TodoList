@@ -6,7 +6,7 @@ on:
       viktig:
         description: 'Insert number here (fail if under 7)'
         required: true
-        type:  number
+        type: number
 
 jobs: 
   the-best-job:
@@ -19,7 +19,7 @@ jobs:
       - name: The number was lower than 7
         run: | 
           echo "The number was lower than 7. The rest of this job will not run."
-          if[ ${{ inputs.viktig < 7 }} ]; then
+           if [ inputs.viktig < 7 ]; then
             exit 42
             fi
         
