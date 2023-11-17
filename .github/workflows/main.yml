@@ -6,11 +6,13 @@ on:
       viktig:
         description: 'Insert number here (fail if under 7)'
         required: true
-        type: number
+        type: string
 
 jobs: 
   the-best-job:
     runs-on: ubuntu-latest
+    env:
+      NUMBER_INPUT: ${{ inputs.viktig }}
     steps:
       - name: The number was 7 or higher
         if: inputs.viktig >= 7
@@ -20,7 +22,7 @@ jobs:
         run: |
          echo "The number was lower than 7. The rest of this job will not run."
          echo "Value of inputs.viktig: ${{ inputs.viktig }}"
-         if [ ${{ inputs.viktig }} < 7 ]; then
+         if [ ${{ inputs.viktig }} -lt 7 ]; then
          echo "Exiting with code 42"
          exit 42
          fi
