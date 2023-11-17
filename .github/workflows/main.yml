@@ -42,6 +42,11 @@ jobs:
       - name: Testing env var that should be 'Hello from job'
         run: echo "The env var is in fact $JOB_ENV"
 
+      - name: Creating env var in step
+        env:
+          STEP_VAR: 'Hello from step'
+        run: echo "The env var in step is in fact $STEP_VAR"
+
 
 
 
