@@ -9,4 +9,11 @@ jobs:
     steps:
     - name: Project-name
       run: echo "${{ github.repository }} "
+
+  Print-current-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Branch-name
+      run: echo "${{ github.base_ref }}"
   
