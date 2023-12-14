@@ -3,27 +3,32 @@ name: Practicing workflows
 on: workflow_dispatch
 
 jobs: 
-  Print-project-name:
+  print-project-name:
     runs-on: ubuntu-latest
 
     steps:
     - name: Project-name
       run: echo "${{ github.repository }} "
 
-  Print-current-branch:
+  print-current-branch:
     runs-on: ubuntu-latest
 
     steps:
     - name: Branch-name
       run: echo "${{ github.ref }}"
 
-  Build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4.1.1
 
+    - name: Restore
+      run: dotnet restore
+
     - name: Build
-      run: "dotnet build"
+      run: dotnet build --no-restore
+
+    
   
