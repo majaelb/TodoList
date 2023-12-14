@@ -1,0 +1,12 @@
+name: Practicing workflows
+
+on: workflow_dispatch
+
+jobs: 
+  Print-project-name:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Project-name
+      run: echo "${{ github.repository }} "
+  
