@@ -16,4 +16,14 @@ jobs:
     steps:
     - name: Branch-name
       run: echo "${{ github.ref }}"
+
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4.1.1
+
+    - name: Build
+      run: "dotnet build"
   
